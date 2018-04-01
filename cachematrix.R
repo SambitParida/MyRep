@@ -11,7 +11,7 @@
 
 
 makeCacheMatrix<-function(x=matrix()){
-    invmatrix <- NULL
+    invmatrix <- NULL # initialization of invmatrix with NULL
     set <- function(y)
     {
         x <<- y
@@ -40,7 +40,7 @@ makeCacheMatrix<-function(x=matrix()){
 cacheSolve <- function(x, ...) {
     invmatrix <- x$getInverseVal()
     if (!is.null(invmatrix)) {
-        message("getting cached data")
+        message("Cache Data Retrieved")
         return(invmatrix)
     }
     mat <- x$get()
