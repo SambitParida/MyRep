@@ -1,5 +1,14 @@
-#makeCacheMatrix returns a list of functions.
-#This function stores a "matrix" object and also caches its inverse value
+# makeCacheMatrix returns a list of functions.
+# This function stores a "matrix" object and also caches its inverse value
+#
+# Example:-
+# m <- matrix(1:4, nrow = 2, ncol = 2, byrow = TRUE)    
+# > m
+#       [,1] [,2]
+# [1,]    1    2
+# [2,]    3    4
+# m1 <- makeCacheMatrix(m)
+
 
 makeCacheMatrix<-function(x=matrix()){
     invmatrix <- NULL
@@ -21,9 +30,14 @@ makeCacheMatrix<-function(x=matrix()){
 
 ## This function calculates the inverse of the special "matrix" created by 
 ## makeCacheMatrix in the above code. 
+# cacheSolve(m1)
+#
+#      [,1] [,2]
+# [1,] -2.0  1.0
+# [2,]  1.5 -0.5
+
 
 cacheSolve <- function(x, ...) {
-    ## Return a matrix that is the inverse of 'x'
     invmatrix <- x$getInverseVal()
     if (!is.null(invmatrix)) {
         message("getting cached data")
@@ -34,4 +48,3 @@ cacheSolve <- function(x, ...) {
     x$setInverseVal(invmatrix)
     invmatrix
 }
-
